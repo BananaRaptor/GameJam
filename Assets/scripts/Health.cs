@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Movement>();
         movement = player.GetComponentInParent<Movement>();
-        //health = movement.getHealth();
+        //1health = movement.getHealth();
         //numOfHearts = movement.getMaxHealth();
 
     }

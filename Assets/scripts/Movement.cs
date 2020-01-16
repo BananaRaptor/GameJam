@@ -164,4 +164,9 @@ public class Movement : MonoBehaviour
             molotovManager.throwMol(transform.position, character.transform.rotation);
         }
     }
+
+    public Weapon getWeapon()
+    {
+        return gun;
+    }
 }

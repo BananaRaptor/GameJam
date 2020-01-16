@@ -61,5 +61,10 @@ public class Weapon : MonoBehaviour{
     public void switchWeaponState(){
         goldArmed = !goldArmed;
     }
+
+    public int getAmmo()
+    {
+        return totalAmmo;
+    }
 }
 
