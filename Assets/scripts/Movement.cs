@@ -24,8 +24,6 @@ public class Movement : MonoBehaviour
     private float orientationCorrection = 90f;
     private MolotovManager molotovManager;
 
-    private bool hasMoved = false;
-
 
     void Start()
     {
@@ -43,6 +41,7 @@ public class Movement : MonoBehaviour
         }
         molotovManager = new MolotovManager(molotov);
         animator = GetComponentInChildren<Animator>();
+        animator.speed = 8;
     }
 
     void Update(){
@@ -114,33 +113,28 @@ public class Movement : MonoBehaviour
     }
     public void takeDamage()
     {
-        //hp--;
+        hp--;
     }
 
     private void handleMoveCtrls()
     {
-        bool moved = false;
         if (Input.GetKey(KeyCode.D))
         {
-            moved = true;
             rb.AddForce(new Vector3(movementSpeed, 0f, 0f) * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            moved = true;
             rb.AddForce(new Vector3(movementSpeed * -1, 0f, 0f) * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.W))
         {
-            moved = true;
             rb.AddForce(new Vector3(0f, movementSpeed, 0f) * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            moved = true;
             rb.AddForce(new Vector3(0f, movementSpeed * -1, 0f) * Time.deltaTime);
         }
-        animator.SetBool("IsMoving", moved);
+        animator.SetBool("IsMoving", (rb.velocity != Vector2.zero));
         rb.velocity = Vector3.zero;
     }
 

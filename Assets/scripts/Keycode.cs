@@ -11,7 +11,8 @@ public class Keycode : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
     }
 
-    private void OnCollisionEnter2D(Collision2D other){
+    private void OnCollisionEnter2D(Collision2D other)
+    {
         if (other.gameObject.CompareTag("Player")) {
             Destroy(gameObject);
         }
